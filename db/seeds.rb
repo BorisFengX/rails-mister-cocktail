@@ -36,10 +36,35 @@ end
 puts "created #{Ingredient.all.count} ingredients!"
 
 puts 'Creating Cocktails...'
-12.times do
-  cocktail = Cocktail.new(
-    name:    Faker::Coffee.blend_name
-  )
-  cocktail.save!
+# 12.times do
+#   cocktail = Cocktail.new(
+#     name:    Faker::Coffee.blend_name
+#   )
+#   cocktail.save!
+# end
+# puts "created #{Cocktail.all.count} cocktails!"
+
+15.times do
+  url = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+  drink_hash = JSON.parse(open(url).read)
+  drink = drink_hash["drinks"].first
+  cocktail = Cocktail.new(name: drink["strDrink"], pic: drink["strDrinkThumb"])
+  cocktail.save
+  puts "created cocktail #{cocktail.name}!"
+  (1..15).each do |n|
+    ingredient_key = "strIngredient#{n}"
+    dose_key = "strMeasure#{n}"
+    puts "#{ingredient_key} and #{dose_key}"
+    break if drink[ingredient_key] == ''
+    ingredient = Ingredient.find_by_name(drink[ingredient_key])
+    dose = Dose.new(description: drink[dose_key])
+    dose.ingredient = ingredient
+    dose.cocktail = cocktail
+    dose.save
+    puts "created #{cocktail.doses.count} doses"
+  end
 end
-puts "created #{Cocktail.all.count} cocktails!"
+
+puts "created #{Cocktail.all.count} cocktails with #{Dose.all.count} doses in total!"
+
+

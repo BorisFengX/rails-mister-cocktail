@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       get 'filter', to: 'cocktails#filter'
     end
     resources :doses, only: [:new, :create, :destroy]
-
   end
 
 

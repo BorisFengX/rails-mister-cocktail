@@ -1,0 +1,28 @@
+.content-container {
+  padding: 10px 80px;
+  background-color: rgb(240,240,240);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.card {
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  .card-banner {
+    height: 150px;
+    h3 {
+      font-size: 20px;
+      color: white;
+    }
+  }
+  .card-footer {
+    background-color: white;
+  }
+  .icons {
+    margin: 10px;
+  }
+}

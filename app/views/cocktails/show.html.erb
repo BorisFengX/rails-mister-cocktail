@@ -1,23 +1,29 @@
 <div class="page-banner">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://picsum.photos/200/300/?random');">
+<!--     <div class="card-category">Popular</div> -->
+    <div class="card-description">
+      <h2><%= @cocktail.name %></h2>
+<!--       <p>Very cool city, the best</p> -->
+    </div>
+<!--     <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+    <a class="card-link" href="#" ></a>
+  </div>
 </div>
 
-<div>
-  <h1><%= @cocktail.name %></h1>
+<div class="show-page-content">
+  <div class="description">
+    <h4>A bit more about this cocktail...</h4>
+    <%= link_to "Back", cocktails_path, class:"btn btn-warning" %>
+  </div>
+  <div class="doses">
+    <h5>Doses</h5>
+    <% @doses.each do |dose| %>
+      <ul class="list-inline">
+        <li><%= dose.ingredient.name %></li>
+        <li><%= dose.description %></li>
+        <%= link_to "Delete", cocktail_dose_path(@cocktail,dose), method: :delete %>
+      </ul>
+    <% end %>
+    <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+  </div>
 </div>
-
-<div>
-  <h2>A bit more about this cocktail...</h2>
-</div>
-<div>
-  <h1>Doses</h1>
-  <% @doses.each do |dose| %>
-    <ul class="list-inline">
-      <li><%= dose.ingredient.name %></li>
-      <li><%= dose.description %></li>
-      <%= link_to "Delete", cocktail_dose_path(@cocktail,dose), method: :delete %>
-    </ul>
-  <% end %>
-</div>
-
-<%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
-<%= link_to "Back", cocktails_path %>

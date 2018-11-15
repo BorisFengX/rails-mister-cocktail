@@ -1,0 +1,9 @@
+<div class="navbar-wagon">
+  <h3><%= link_to "Cocktails", cocktails_path %></h3>
+
+  <form action="/cocktails/filter" class="form-inline">
+    <input type="string" class="form-control" name="name">
+    <input type="submit" class="form-control btn-primary" value="Search">
+    <%= link_to "Add Cocktail", new_cocktail_path, class:"btn btn-primary" %>
+  </form>
+</div>

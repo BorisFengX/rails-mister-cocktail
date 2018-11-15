@@ -34,3 +34,12 @@ drink_hash["drinks"].each do |drink|
 end
 
 puts "created #{Ingredient.all.count} ingredients!"
+
+puts 'Creating Cocktails...'
+12.times do
+  cocktail = Cocktail.new(
+    name:    Faker::Coffee.blend_name
+  )
+  cocktail.save!
+end
+puts "created #{Cocktail.all.count} cocktails!"

@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   # , except: [:edit, :update, :delete]
 
   resources :cocktails do
+    collection do                       # collection => no restaurant id in URL
+      get 'filter', to: "cocktails#filter"  # RestaurantsController#top
+    end
     resources :doses, only: [:new, :create, :delete]
   end
+
 
   root to: 'cocktails#index'
 end

@@ -10,6 +10,12 @@
 </div>
 <div>
   <h1>Doses</h1>
-  <ul class="list-inline">
-  </ul>
+  <% @doses.each do |review| %>
+    <ul>
+      <li><%= dose.ingredient %></li>
+      <li><%= dose.description %></li>
+    </ul>
+  <% end %>
 </div>
+
+<%= link_to "Back", cocktails_path %>

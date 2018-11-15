@@ -4,6 +4,7 @@ class DosesController < ApplicationController
   end
 
   def new
+    @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new
   end
 
@@ -15,6 +16,7 @@ class DosesController < ApplicationController
       redirect_to cocktail_path(@dose.cocktail.id)
     else
       render :new
+    end
   end
 
   def destroy

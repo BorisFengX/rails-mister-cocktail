@@ -5,7 +5,7 @@
   <div class="cards">
     <div class="row">
       <% @cocktails.each do |cocktail| %>
-        <div class = "col-xs-12 col-sm-6 col-md-4">
+        <div class = "col col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <div class="card-banner"></div>
             <div class="card-content">
@@ -14,10 +14,7 @@
 
             <div class="card-footer">
               <ul class="list-inline">
-                <li><%= link_to "More info", cocktail_path(cocktail) %></li>
-                <li><%= link_to "Edit", edit_cocktail_path(cocktail) %></li>
-                <li><%= link_to "Remove", cocktail_path(cocktail), method: :delete,
-                data: { confirm: "Are you sure?" } %></li>
+                <li><%= link_to "Details", cocktail_path(cocktail) %></li>
               </ul>
             </div>
           </div>

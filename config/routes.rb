@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     collection do
       get 'filter', to: 'cocktails#filter'
     end
-    resources :doses, only: [:new, :create, :destroy], shallow: true
+    resources :doses, only: [:index, :new, :create, :destroy], shallow: true
   end
 
   root to: 'cocktails#index'

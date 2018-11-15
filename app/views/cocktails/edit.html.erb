@@ -4,6 +4,7 @@
       <%= simple_form_for(@cocktail) do |f| %>
         <div class="form-group">
           <%= f.input :name, class: 'form-control' %>
+          <%= f.input :pic, class: 'form-control' %>
         </div>
 
         <%= f.submit "Update cocktail infomation", class: "btn btn-primary" %>

@@ -1,27 +1,21 @@
-
-<h1>All our Cocktails</h1>
-
 <div class = "content-container">
   <div class="cards">
     <div class="row">
       <% @cocktails.each do |cocktail| %>
-        <div class = "col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <div class="card-banner"></div>
-            <div class="card-content">
-              <h2><%= cocktail.name %></h2>
-            </div>
-
-            <div class="card-footer">
-              <ul class="list-inline">
-                <li><%= link_to "More info", cocktail_path(cocktail) %></li>
-                <li><%= link_to "Edit", edit_cocktail_path(cocktail) %></li>
-                <li><%= link_to "Remove", cocktail_path(cocktail), method: :delete,
-                data: { confirm: "Are you sure?" } %></li>
-              </ul>
+          <div class = "col col-xs-12 col-sm-4 col-md-3">
+            <div class="card">
+              <div class="card-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 50%), url('<%= cocktail.pic %>');">
+                <div class="card-content text-center">
+                  <h3><%= cocktail.name %></h3>
+                </div>
+              </div>
+              <div class="card-footer">
+                <ul class="list-inline icons">
+                  <li><%= link_to "Details", cocktail_path(cocktail) %></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
       <% end %>
     </div>
   </div>

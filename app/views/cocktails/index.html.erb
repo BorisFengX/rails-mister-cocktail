@@ -1,2 +1,38 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<div class="header">
+  <h3><%= link_to "Cocktails", cocktails_path %></h3>
+
+  <form action="/cocktails/filter" class="form-inline">
+    <input type="string" class="form-control" name="name">
+    <input type="submit" class="form-control btn-primary" value="Search">
+    <%= link_to "Add Cocktail", new_cocktail_path, class:"btn btn-primary" %>
+  </form>
+</div>
+<h1>All our Cocktails</h1>
+
+<div class = "content-container">
+  <div class="cards">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class = "col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="card-banner"></div>
+            <div class="card-content">
+              <h2><%= cocktail.name %></h2>
+            </div>
+
+            <div class="card-footer">
+              <ul class="list-inline">
+                <li><%= link_to "More info", cocktail_path(cocktail) %></li>
+                <li><%= link_to "Edit", edit_cocktail_path(cocktail) %></li>
+                <li><%= link_to "Remove", cocktail_path(cocktail), method: :delete,
+                data: { confirm: "Are you sure?" } %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

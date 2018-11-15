@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   # , except: [:edit, :update, :delete]
 
   resources :cocktails do
-    resources :doses, only: [:new, :create, :delete]
+    collection do
+      get 'filter', to: 'cocktails#filter'
+    end
+    resources :doses, only: [:new, :create, :destroy], shallow: true
   end
 
   root to: 'cocktails#index'

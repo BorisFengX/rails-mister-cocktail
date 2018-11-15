@@ -14,7 +14,6 @@ class CocktailsController < ApplicationController
 
 
   def show
-    # @reviews = Review.where("cocktail_id": @cocktail.id)
   end
 
   def new
@@ -52,7 +51,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+    params.require(:cocktail).permit(:name)
   end
 
   def find_cocktail

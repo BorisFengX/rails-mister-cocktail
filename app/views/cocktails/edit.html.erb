@@ -1,2 +1,15 @@
-<h1>Cocktails#edit</h1>
-<p>Find me in app/views/cocktails/edit.html.erb</p>
+<div class="form">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for(@cocktail) do |f| %>
+        <div class="form-group">
+          <%= f.input :name, class: 'form-control' %>
+        </div>
+
+        <%= f.submit "Update cocktail infomation", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

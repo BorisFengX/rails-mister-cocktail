@@ -6,7 +6,7 @@
           <%= f.input :description, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.input :ingredient, class: 'form-control' %>
+          <%= f.association :ingredient, class: 'form-control' %>
         </div>
 
         <%= f.submit "Add a dose", class: "btn btn-primary" %>

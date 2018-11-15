@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     collection do                       # collection => no restaurant id in URL
       get 'filter', to: "cocktails#filter"  # RestaurantsController#top
     end
-    resources :doses, only: [:new, :create, :delete]
+    resources :doses, only: [:new, :create, :destroy]
   end
 
 

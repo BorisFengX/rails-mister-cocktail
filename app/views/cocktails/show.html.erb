@@ -10,12 +10,14 @@
 </div>
 <div>
   <h1>Doses</h1>
-  <% @doses.each do |review| %>
-    <ul>
-      <li><%= dose.ingredient %></li>
+  <% @doses.each do |dose| %>
+    <ul class="list-inline">
+      <li><%= dose.ingredient.name %></li>
       <li><%= dose.description %></li>
+      <%= link_to "Delete", cocktail_dose_path(@cocktail), method: :delete %>
     </ul>
   <% end %>
 </div>
 
+<%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
 <%= link_to "Back", cocktails_path %>

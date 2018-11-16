@@ -4,15 +4,16 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-.card {
-  background-size: contain;
-  background-position: center;
+.cards .card {
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
   box-shadow: 0 0 4px rgba(0,0,0,0.3);
   .card-banner {
+    background-size: cover;
+    background-position: center;
     height: 150px;
     h3 {
       font-size: 20px;
